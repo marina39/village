@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Lista de personagens</title>
+</head>
+<body>
+</head>
+<body>
+	    <section class="layout-content" layout:fragment="body">
+	        <nav class="navbar navbar-expand-md bg-light">
+	            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+	                <ul class="navbar-nav mr-auto">
+	                    <li class="nav-item active">
+	                        <i class="oi oi-caret-right"></i>
+	                        <span>Lista de personagens</span>
+	                    </li>
+	                </ul>
+	                <a class="btn btn-primary btn-md" href="/personagens/cadastrar" role="button">
+	                    <span class="oi oi-plus" title="Cadastro" aria-hidden="true"></span>
+	                    <span>Cadastrar personagem</span>
+	                </a>
+	            </div>
+	        </nav>
+
+	        <div class="container">
+
+	            <p>
+	                <i class="oi oi-magnifying-glass"></i><span></span>
+	                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseNome"
+	                        aria-controls="collapseNome">Nome</button>
+	            </p>
+	            <div class="row">
+	                <div class="col">
+	                    <div class="collapse" id="collapseName">
+
+	                        <nav class="navbar navbar-light bg-light">
+	                            <form class="form-inline" method="GET" action="/personagens/buscar/nome">
+	                                <input class="form-control mr-sm-2" type="search" placeholder="Nome" 
+	                                	   aria-label="Search" name="name" />
+	                                <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
+	                            </form>
+	                        </nav>
+
+	                    </div>
+	                </div>
+	            </div>
+	            
+	            <div class="table-responsive">
+	            	<div th:replace="fragments/alert :: alert"></div>
+	                <table class="table table-striped table-hover table-sm">
+	                    <thead>
+	                    <tr>
+	                        <th>Nome</th>
+	                        <th>Ação</th>
+	                    </tr>
+	                    </thead>
+	                    <tbody>
+	                    <tr th:each="p : ${personage}">
+	                        <td th:text="${p.name}"></td>
+	                        <td colspan="2">
+	                            <a class="btn btn-info btn-sm" th:href="@{/personagens/editar/{id} (id=${p.id}) }" 
+	                               role="button">
+	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
+	                            </a>
+	                            <button th:id="${'btn_personagens/excluir/' + p.id}" type="button" 
+	                            		class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">
+	                                <span class="oi oi-circle-x" title="Excluir" aria-hidden="true"></span>
+	                            </button>
+	                        </td>
+	                    </tr>
+	                    </tbody>
+	                </table>
+	            </div>
+	        </div>
+	        <div th:replace="fragments/modal :: modal"></div>
+	    </section>
+</body>
+</html>

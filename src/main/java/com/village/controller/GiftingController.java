@@ -60,7 +60,7 @@ public class GiftingController {
 	@GetMapping("/buscar/personagem")
 	public String findByPersonage(@RequestParam("id") Long id, ModelMap model) {
 		model.addAttribute("presenteando", giftingService.findByPersonageId(id));
-		return "/gifting/findByPersonage";
+		return "/gifting/list";
 	}
 	
 	@ModelAttribute("allPersonage")

@@ -3,7 +3,7 @@ package com.village.entity;
 import javax.persistence.*;
 
 @Entity
-public class Gifting extends AbstractEntity<Long> {
+public class Combination extends AbstractEntity<Long> {
 
 	/**
 	 * 

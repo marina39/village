@@ -41,7 +41,7 @@
 	                <div class="col">
 	                    <div class="collapse" id="collapseGift">	
 	                        <nav class="navbar navbar-light bg-light">
-	                            <form class="form-inline" method="GET" th:action="@{/presentando/buscar/presente}">
+	                            <form class="form-inline" method="GET" th:action="@{/presenteando/buscar/presente}">
 	                                <select class="form-control mr-sm-2" th:name="id" aria-label="Buscar">
 	                                    <option value="">Presente</option>
 	                                    <option th:each="g : ${allGift}" th:value="${g.id}" th:text="${g.name}"></option>
@@ -68,12 +68,12 @@
 	                    </tr>
 	                    </thead>
 	                    <tbody>
-	                    <tr th:each="t : ${allGifting}">
-	                        <td th:text="${t.personage.name}"></td>
-	                        <td th:text="${t.gift.name}"></td>
-	                        <td th:text="${t.score}"></td>
+	                    <tr th:each="c : ${allCombination}">
+	                        <td th:text="${c.personage.name}"></td>
+	                        <td th:text="${c.gift.name}"></td>
+	                        <td th:text="${c.score}"></td>
 	                        <td colspan="2">
-	                            <button th:id="${#strings.concat('btn_presenteando/excluir/', t.id)}" 
+	                            <button th:id="${#strings.concat('btn_presenteando/excluir/', c.id)}" 
 	                            		type="button" class="btn btn-danger btn-sm" data-toggle="modal" 
 	                            		data-target="#myModal">
 	                                <span class="oi oi-circle-x" title="Excluir" aria-hidden="true"></span>

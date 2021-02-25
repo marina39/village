@@ -16,7 +16,7 @@ public class Gift extends AbstractEntity<Long> {
 	private String name;
 	
 	@OneToMany(mappedBy = "gift")
-	private List<Gifting> gifting;
+	private List<Combination> combination;
 
 	public String getName() {
 		return name;
@@ -26,12 +26,12 @@ public class Gift extends AbstractEntity<Long> {
 		this.name = name;
 	}
 
-	public List<Gifting> getGifting() {
-		return gifting;
+	public List<Combination> getGifting() {
+		return combination;
 	}
 
-	public void setGifting(List<Gifting> gifting) {
-		this.gifting = gifting;
+	public void setCombination(List<Combination> combination) {
+		this.combination = combination;
 	}
 
 }
